@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 
 class Image extends Component {
     render() {
+        const { url, width, height } = this.props.image
+
         return (
             <img
-                src={this.props.url}
-                width={this.props.width}
-                height={this.props.height}
+                src={url}
+                width={width}
+                height={height}
             />
         )
     }

@@ -4,7 +4,7 @@ class Price extends Component {
     render() {
         return (
             <span>
-                { `цена: ${this.props.children} рублей` }
+                цена: {this.props.children} рублей
             </span>
         )
     }
