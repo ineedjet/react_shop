@@ -5,7 +5,7 @@ class Cart extends Component {
   render() {
     return (
         <CartContext.Consumer>
-          {cartList => (<span> Корзина {cartList.length} </span>)}
+          {cart => (<span> Корзина {cart.cartList.length} </span>)}
         </CartContext.Consumer>
     )
   }
