@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {cartList: []};
   }
 
+
   render() {
     return (
         <CartContext.Provider value={cartList}>
