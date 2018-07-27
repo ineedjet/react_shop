@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import CartContext from './CartContext'
 
 class Cart extends Component {
   render() {
     return (
-        <div>Корзина</div>
+        <CartContext.Consumer>
+          {cartList => (<span> Корзина {cartList.length} </span>)}
+        </CartContext.Consumer>
     )
   }
 }

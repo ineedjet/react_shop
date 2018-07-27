@@ -3,9 +3,6 @@ import ProductCard from './ProductCard';
 import Cart from './Cart';
 
 class Catalog extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
         <div>
@@ -18,10 +15,6 @@ class Catalog extends Component {
         </div>
     )
   }
-}
-
-Catalog.defaultProps = {
-  cartItems: [1,2,3]
 }
 
 export default Catalog;
