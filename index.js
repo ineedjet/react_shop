@@ -12,23 +12,23 @@ class App extends Component {
     this.addToCart = this.addToCart.bind(this);
   }
 
-  addToCart(item){
+  addToCart(item) {
     this.setState({cartList: this.state.cartList.concat(item)})
   }
 
 
   render() {
     return (
-        <CartContext.Provider value={{cartList: this.state.cartList, addToCart: this.addToCart}}>
-          <div>
-            <Catalog products={products}/>
-          </div>
-        </CartContext.Provider>
+      <CartContext.Provider value={{cartList: this.state.cartList, addToCart: this.addToCart}}>
+        <div>
+          <Catalog products={products}/>
+        </div>
+      </CartContext.Provider>
     )
   }
 }
 
 ReactDOM.render(
-    <App/>,
-    document.getElementById('root')
+  <App/>,
+  document.getElementById('root')
 );

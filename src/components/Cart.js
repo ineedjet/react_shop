@@ -4,9 +4,9 @@ import CartContext from './CartContext'
 class Cart extends Component {
   render() {
     return (
-        <CartContext.Consumer>
-          {cart => (<span> Корзина {cart.cartList.length} </span>)}
-        </CartContext.Consumer>
+      <CartContext.Consumer>
+        {cart => (<span> Корзина {cart.cartList.length} </span>)}
+      </CartContext.Consumer>
     )
   }
 }

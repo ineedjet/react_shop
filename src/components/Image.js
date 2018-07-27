@@ -5,11 +5,11 @@ class Image extends Component {
     const {url, width, height} = this.props.image
 
     return (
-        <img
-            src={url}
-            width={width}
-            height={height}
-        />
+      <img
+        src={url}
+        width={width}
+        height={height}
+      />
     )
   }
 }
