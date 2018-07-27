@@ -1,11 +1,20 @@
-import { calc } from "./src/calc";
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './src/Hello';
+import { products } from './src/constants/Products';
+import Catalog from "./src/components/Catalog";
 
-console.log("3 + 4 = ", calc.plus(3, 4));
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Catalog products={products} />
+            </div>
+        )
+    }
+}
 
 ReactDOM.render(
-    <Hello />,
+    <App />,
     document.getElementById('root')
 )
