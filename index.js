@@ -19,7 +19,10 @@ class App extends Component {
 
   render() {
     return (
-      <CartContext.Provider value={{cartList: this.state.cartList, addToCart: this.addToCart}}>
+      <CartContext.Provider value={{
+          cartList: this.state.cartList,
+          addToCart: this.addToCart
+      }}>
         <div>
           <Catalog products={products}/>
         </div>
