@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {products} from './src/constants/Products';
 import Catalog from "./src/components/Catalog";
-import CartContext from './src/components/CartContext'
+import CartContext from './src/components/CartContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -20,11 +21,15 @@ class App extends Component {
   render() {
     return (
       <CartContext.Provider value={{
-          cartList: this.state.cartList,
-          addToCart: this.addToCart
+        cartList: this.state.cartList,
+        addToCart: this.addToCart
       }}>
         <div>
-          <Catalog products={products}/>
+          <Router>
+            <Switch>
+              <Route exact strict path='/app' render={()=> <Catalog products={products}/> } />
+            </Switch>
+          </Router>
         </div>
       </CartContext.Provider>
     )
