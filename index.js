@@ -4,6 +4,7 @@ import {products} from './src/constants/Products';
 import Catalog from './src/components/Catalog';
 import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
+import Contacts from './src/components/Contacts';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { mainPath, cartPath, contactsPath, productPath } from './src/helpers/routes';
 
@@ -38,7 +39,7 @@ class App extends Component {
                      render={ () => <Layout><Product/></Layout>}
               />
               <Route exact strict path={cartPath()} render={ () => <Layout><div>Cart</div></Layout> } />
-              <Route exact strict path={contactsPath()} render={ () => <Layout><div>Contacts</div></Layout> } />
+              <Route exact strict path={contactsPath()} render={ () => <Layout><Contacts/></Layout> } />
               <Route exact strict path='' render={ () => <div>404</div> } />
             </Switch>
           </Router>
