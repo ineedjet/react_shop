@@ -3,24 +3,13 @@ import ReactDOM from 'react-dom';
 import {products} from './src/constants/Products';
 import Catalog from './src/components/Catalog';
 import CartContext from './src/components/CartContext';
-import MainMenu from './src/components/MainMenu';
+import Layout from './src/components/Layout';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { mainPath, cartPath, contactsPath, productPath } from './src/helpers/routes';
 
 const Product = ({ match: { params } }) => {
   return (<div>Product id is id { params.id }</div>)
 };
-
-class Layout extends Component {
-  render() {
-    return (
-      <div>
-        <MainMenu/>
-        <div>{ this.props.children }</div>
-      </div>
-    )
-  }
-}
 
 class App extends Component {
   constructor(props) {
