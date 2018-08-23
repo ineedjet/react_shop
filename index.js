@@ -43,13 +43,13 @@ class App extends Component {
         <div>
           <Router>
             <Switch>
-              <Route exact strict path={mainPath()} render={ () => <Catalog products={products}/> } />
+              <Route exact strict path={mainPath()} render={ () => <Layout><Catalog products={products}/></Layout> } />
               <Route exact strict
                      path={productPath()}
-                     component={Layout}
+                     render={ () => <Layout><Product/></Layout>}
               />
-              <Route exact strict path={cartPath()} render={ () => <div>Cart</div> } />
-              <Route exact strict path={contactsPath()} render={ () => <div>Contacts</div> } />
+              <Route exact strict path={cartPath()} render={ () => <Layout><div>Cart</div></Layout> } />
+              <Route exact strict path={contactsPath()} render={ () => <Layout><div>Contacts</div></Layout> } />
               <Route exact strict path='' render={ () => <div>404</div> } />
             </Switch>
           </Router>
