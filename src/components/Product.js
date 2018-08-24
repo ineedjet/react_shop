@@ -3,7 +3,11 @@ import React from "react";
 
 class Product extends Component {
   render() {
-    return (<div>Product id is { this.props.id }</div>)
+    return (
+      <div>
+       <h1>Product { this.props.id }</h1>
+      </div>
+    )
   }
 }
 

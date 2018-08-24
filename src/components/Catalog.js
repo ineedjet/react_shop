@@ -6,6 +6,7 @@ class Catalog extends Component {
   render() {
     return (
       <div>
+        <h1>Catalog</h1>
         <Cart/>
         {
           this.props.products.map(product => (

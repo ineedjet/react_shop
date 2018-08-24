@@ -35,7 +35,7 @@ class App extends Component {
                      path={productPath()}
                      render={ ({ match: { params }}) => <Product id={params.id} />}
               />
-              <Route exact strict path={cartPath()} render={ () => <div>Cart</div> } />
+              <Route exact strict path={cartPath()} render={ () => <div><h1>Cart</h1></div> } />
               <Route exact strict path={contactsPath()} render={ () => <Contacts/> } />
               <Route exact strict path='' render={ () => <h1>404</h1> } />
             </Switch>

@@ -6,7 +6,7 @@ class MainMenu extends Component {
   render() {
     return (
       <nav>
-        <Link to={mainPath()}>Home</Link>
+        <Link to={mainPath()}>Catalog</Link>
         {' '}
         <Link to={cartPath()}>Cart</Link>
         {' '}
