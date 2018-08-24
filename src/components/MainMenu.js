@@ -7,7 +7,9 @@ class MainMenu extends Component {
     return (
       <nav>
         <Link to={mainPath()}>Home</Link>
+        {' '}
         <Link to={cartPath()}>Cart</Link>
+        {' '}
         <Link to={contactsPath()}>Contacts</Link>
       </nav>
     )
