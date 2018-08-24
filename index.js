@@ -30,20 +30,20 @@ class App extends Component {
         cartList: this.state.cartList,
         addToCart: this.addToCart
       }}>
-        <div>
-          <Router>
+        <Router>
+          <Layout>
             <Switch>
-              <Route exact strict path={mainPath()} render={ () => <Layout><Catalog products={products}/></Layout> } />
+              <Route exact strict path={mainPath()} render={ () => <Catalog products={products}/> } />
               <Route exact strict
                      path={productPath()}
-                     render={ () => <Layout><Product/></Layout>}
+                     render={ () => <Product/>}
               />
-              <Route exact strict path={cartPath()} render={ () => <Layout><div>Cart</div></Layout> } />
-              <Route exact strict path={contactsPath()} render={ () => <Layout><Contacts/></Layout> } />
-              <Route exact strict path='' render={ () => <div>404</div> } />
+              <Route exact strict path={cartPath()} render={ () => <div>Cart</div> } />
+              <Route exact strict path={contactsPath()} render={ () => <Contacts/> } />
+              <Route exact strict path='' render={ () => <h1>404</h1> } />
             </Switch>
-          </Router>
-        </div>
+          </Layout>
+        </Router>
       </CartContext.Provider>
     )
   }

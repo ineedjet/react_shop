@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import NavLink from './NavLink';
+import Link from './Link';
 import { mainPath, cartPath, contactsPath } from '../helpers/routes';
 
 class MainMenu extends Component {
   render() {
     return (
       <nav>
-        <NavLink to={mainPath()}>Home</NavLink>
-        <NavLink to={cartPath()}>Cart</NavLink>
-        <NavLink to={contactsPath()}>Contacts</NavLink>
+        <Link to={mainPath()}>Home</Link>
+        <Link to={cartPath()}>Cart</Link>
+        <Link to={contactsPath()}>Contacts</Link>
       </nav>
     )
   }
