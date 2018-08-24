@@ -12,12 +12,18 @@ class ProductCard extends Component {
 
     return (
         <div>
-          <Link to={productPath()}>
+          <Link to={productPath(this.props.product.id)}>
             <Image image={image}/>
+          </Link>
+          <br/>
+          <Link to={productPath(this.props.product.id)}>
             <TextBox>{title}</TextBox>
           </Link>
+          {' '}
           <Price>{price}</Price>
+          <br/>
           <AddToCartButton product={this.props.product} />
+          <br/><br/>
         </div>
     )
   }

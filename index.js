@@ -5,12 +5,9 @@ import Catalog from './src/components/Catalog';
 import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
 import Contacts from './src/components/Contacts';
+import Product from './src/components/Product';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { mainPath, cartPath, contactsPath, productPath } from './src/helpers/routes';
-
-const Product = ({ match: { params } }) => {
-  return (<div>Product id is id { params.id }</div>)
-};
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +33,7 @@ class App extends Component {
               <Route exact strict path={mainPath()} render={ () => <Catalog products={products}/> } />
               <Route exact strict
                      path={productPath()}
-                     render={ () => <Product/>}
+                     render={ ({ match: { params }}) => <Product id={params.id} />}
               />
               <Route exact strict path={cartPath()} render={ () => <div>Cart</div> } />
               <Route exact strict path={contactsPath()} render={ () => <Contacts/> } />
