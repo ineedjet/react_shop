@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CartContext from './CartContext'
 
-class Cart extends Component {
+class CartCounter extends Component {
   render() {
     return (
       <CartContext.Consumer>
@@ -11,4 +11,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default CartCounter;

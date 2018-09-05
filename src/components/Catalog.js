@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import ProductCard from './ProductCard';
-import Cart from './Cart';
+import CartCounter from './CartCounter';
 
 class Catalog extends Component {
   render() {
     return (
       <div>
         <h1>Catalog</h1>
-        <Cart/>
+        <CartCounter/>
         {
           this.props.products.map(product => (
             <ProductCard key={`productCard-${product.id}`} product={product}/>
