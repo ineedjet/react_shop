@@ -1,14 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {products} from './src/constants/Products';
-import Catalog from './src/components/Catalog';
 import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
-import Contacts from './src/components/Contacts';
-import Product from './src/components/Product';
-import Cart from './src/components/Cart';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { mainPath, cartPath, contactsPath, productPath } from './src/helpers/routes';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import {routes} from './src/routes/routes'
 
