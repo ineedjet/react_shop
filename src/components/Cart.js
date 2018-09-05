@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import CartContext from './CartContext'
-import {cartPath} from "../helpers/routes";
-import Link from "./Link";
 
-class CartCounter extends Component {
+class Cart extends Component {
   render() {
     return (
       <CartContext.Consumer>
         {cart => (
           <p>
-            <Link to={cartPath()}>Корзина {cart.cartList.length}</Link>
+            <h1>Cart</h1>
+            Корзина {cart.cartList.length}
           </p>
         )}
       </CartContext.Consumer>
@@ -17,4 +16,4 @@ class CartCounter extends Component {
   }
 }
 
-export default CartCounter;
+export default Cart;
