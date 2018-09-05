@@ -9,7 +9,7 @@ class CartCounter extends Component {
       <CartContext.Consumer>
         {cart => (
           <p>
-            <Link to={cartPath()}>Корзина {cart.cartList.length}</Link>
+            <Link to={cartPath()}>В корзине: {cart.cartList.length}</Link>
           </p>
         )}
       </CartContext.Consumer>

@@ -2,7 +2,7 @@ import {Component} from "react";
 import React from "react";
 import {products} from '../constants/Products';
 import ProductCard from './ProductCard';
-import Cart from './Cart';
+import CartCounter from './CartCounter';
 
 class Product extends Component {
   render() {
@@ -11,7 +11,7 @@ class Product extends Component {
     return (
       <div>
         <h1>Product { product.id }</h1>
-        <Cart/>
+        <CartCounter/>
         <ProductCard product={product} />
       </div>
     )

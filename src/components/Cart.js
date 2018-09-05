@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import CartContext from './CartContext'
+import CartItem from './CartItem'
 
 class Cart extends Component {
   render() {
     return (
       <CartContext.Consumer>
         {cart => (
-          <p>
+          <div>
             <h1>Cart</h1>
-            Корзина {cart.cartList.length}
-          </p>
+            { cart.cartList.map( (item, index) => (<CartItem key={`itemCard-${index}`} item={item} />) ) }
+            <div>В корзине {cart.cartList.length} товаров</div>
+          </div>
         )}
       </CartContext.Consumer>
     )
