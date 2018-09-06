@@ -8,7 +8,7 @@ import {productPath} from '../helpers/routes';
 
 class ProductCard extends Component {
   render() {
-    const {image, title, price} = this.props.product;
+    const {id, image, title, price} = this.props.product;
 
     return (
         <div>
