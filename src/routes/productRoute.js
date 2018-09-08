@@ -7,5 +7,5 @@ export default {
   exact: true,
   strict: true,
   path: productPath(),
-  component: ({ match: { params }}) => (<Product id={params.id} />)
+  render: ({ match: { params }}) => (<Product id={params.id} />)
 };

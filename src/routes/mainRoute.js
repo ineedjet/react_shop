@@ -8,5 +8,5 @@ export default {
   exact: true,
   strict: true,
   path: mainPath(),
-  component: () => (<Catalog products={products}/>)
+  render: () => (<Catalog products={products}/>)
 };

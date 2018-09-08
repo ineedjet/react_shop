@@ -5,5 +5,5 @@ export default {
   exact: true,
   strict: true,
   path: '',
-  component: () => <h1>404</h1>
+  render: () => <h1>404</h1>
 };

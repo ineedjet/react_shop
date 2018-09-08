@@ -7,5 +7,5 @@ export default {
   exact: true,
   strict: true,
   path: contactsPath(),
-  component: Contacts
+  render: Contacts
 };

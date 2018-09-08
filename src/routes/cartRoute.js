@@ -7,5 +7,5 @@ export default {
   exact: true,
   strict: true,
   path: cartPath(),
-  component: () => <Cart />
+  render: () => <Cart />
 };
