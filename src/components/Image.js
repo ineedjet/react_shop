@@ -1,16 +1,34 @@
 import React, {Component} from 'react';
+import {acessToken, spaces, environments} from '../constants/access';
+import request from "superagent";
+import ProductCard from "./ProductCard";
 
 class Image extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { image: false } ;
+  }
+
+  componentDidMount() {
+    request
+      .get(`https://cdn.contentful.com/spaces/${spaces}/assets/${this.props.image}`)
+      .set('Authorization', `Bearer ${acessToken}`)
+      .then(({body}) => {
+        this.setState({ image: body })
+      });
+  }
+
   render() {
-    console.log(this.props.image);
-    const {url, width, height} = this.props.image;
+    const {url} = this.state.image && this.state.image.fields.file;
 
     return (
-      <img
-        src={url}
-        width={width}
-        height={height}
-      />
+      <span>
+        { this.state.image && <img
+          src={url}
+          width='100'
+          height='100'
+        />}
+      </span>
     )
   }
 }
