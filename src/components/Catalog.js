@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import ProductCard from './ProductCard';
 import CartCounter from './CartCounter';
-
+import {acessToken, spaces, environments} from '../constants/access';
 import request from 'superagent';
-
-const acessToken = '9608754a447d852210eb39d271a210f6a2901d3f8f3f52cebea8e814df94c839';
 
 class Catalog extends Component {
   constructor(props) {
@@ -14,7 +12,7 @@ class Catalog extends Component {
 
   componentDidMount() {
     request
-      .get('https://cdn.contentful.com/spaces/hxpnkpcjx8zo/environments/master/entries')
+      .get(`https://cdn.contentful.com/spaces/${spaces}/environments/${environments}/entries`)
       .query({ 'content_type': 'product'})
       .set('Authorization', `Bearer ${acessToken}`)
       .then(({ body: { items } }) => {
