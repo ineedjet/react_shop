@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {acessToken, spaces, environments} from '../constants/access';
+import {acessToken, spaces} from '../constants/access';
 import request from "superagent";
-import ProductCard from "./ProductCard";
 
 class Image extends Component {
   constructor(props) {
