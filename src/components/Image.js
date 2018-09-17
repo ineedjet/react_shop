@@ -24,8 +24,8 @@ class Image extends Component {
       <span>
         { this.state.image && <img
           src={url}
-          width='100'
-          height='100'
+          width={this.props.width}
+          height={this.props.height}
         />}
       </span>
     )
