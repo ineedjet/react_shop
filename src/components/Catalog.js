@@ -17,7 +17,7 @@ class Catalog extends Component {
       .get('https://cdn.contentful.com/spaces/hxpnkpcjx8zo/environments/master/entries')
       .query({ 'content_type': 'product'})
       .set('Authorization', `Bearer ${acessToken}`)
-      .then(( {body: { items } }) => {
+      .then(({ body: { items } }) => {
         this.setState({ items })
       });
   }
@@ -28,13 +28,8 @@ class Catalog extends Component {
         <h1>Catalog</h1>
         <CartCounter/>
         {
-          this.props.products.map(product => (
-            <ProductCard key={`productCard-${product.id}`} product={product}/>
-          ))
-        }
-        {
           this.state.items.map((item) => (
-            <li key={`productCard-${item.fields.id}`}> {item.fields.title} </li>
+            <ProductCard key={`productCard-${item.fields.id}`} product={item.fields} />
           ))
         }
       </div>

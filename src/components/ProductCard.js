@@ -13,7 +13,7 @@ class ProductCard extends Component {
     return (
         <div>
           <Link to={productPath(this.props.product.id)}>
-            <Image image={image}/>
+            {/*<Image image={image}/>*/}
           </Link>
           <br/>
           <Link to={productPath(this.props.product.id)}>
