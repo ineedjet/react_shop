@@ -13,7 +13,7 @@ class Product extends Component {
 
   componentDidMount() {
     request
-      .get(`https://cdn.contentful.com/spaces/${spaces}/environments/${environments}/entries`)
+      .get(`https://cdn.contentful.com/spaces/${spaces}/environments/${environments}/entries/${this.props.id}`)
       .set('Authorization', `Bearer ${acessToken}`)
       .then(({body}) => {
         this.setState({ product: body })
