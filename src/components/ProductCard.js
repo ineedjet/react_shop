@@ -8,15 +8,17 @@ import {productPath} from '../helpers/routes';
 
 class ProductCard extends Component {
   render() {
-    const {id, image, title, price} = this.props.product;
+    console.log(this.props.product);
+    const { title, price } = this.props.product.fields;
+    const { id } = this.props.product.sys;
 
     return (
         <div>
-          <Link to={productPath(this.props.product.id)}>
+          <Link to={productPath(id)}>
             {/*<Image image={image}/>*/}
           </Link>
           <br/>
-          <Link to={productPath(this.props.product.id)}>
+          <Link to={productPath(id)}>
             <TextBox>{title}</TextBox>
           </Link>
           {' '}

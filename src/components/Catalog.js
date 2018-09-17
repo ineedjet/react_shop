@@ -23,13 +23,15 @@ class Catalog extends Component {
   }
 
   render() {
+    console.log(this.state.items);
+
     return (
       <div>
         <h1>Catalog</h1>
         <CartCounter/>
         {
           this.state.items.map((item) => (
-            <ProductCard key={`productCard-${item.fields.id}`} product={item.fields} />
+            <ProductCard key={`productCard-${item.sys.id}`} product={item} />
           ))
         }
       </div>
