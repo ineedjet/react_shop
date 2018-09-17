@@ -13,8 +13,6 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.id);
-
     request
       .get(`https://cdn.contentful.com/spaces/hxpnkpcjx8zo/environments/master/entries/${this.props.id}`)
       .set('Authorization', `Bearer ${acessToken}`)
@@ -24,8 +22,6 @@ class Product extends Component {
   }
 
   render() {
-    console.log(this.state.product);
-
     return (
       <div>
         <h1>Product { this.state.product && this.state.product.fields.id }</h1>
