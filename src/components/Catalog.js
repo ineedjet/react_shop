@@ -1,23 +1,25 @@
 import React, {Component} from 'react';
 import CatalogCard from './CatalogCard';
 import CartCounter from './CartCounter';
-import {apiUrl, accessToken, spaces, environments} from '../constants/access';
-import request from 'superagent';
+import {connect} from 'react-redux'
+import {fetchProducts} from '../actions/catalog'
+
+
+const mapStateToProps = (state) => {
+  return {state};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProducts(){
+      dispatch(fetchProducts())
+    }
+  }
+};
 
 class Catalog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { items: [] };
-  }
-
   componentDidMount() {
-    request
-      .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries`)
-      .query({ 'content_type': 'product'})
-      .set('Authorization', `Bearer ${accessToken}`)
-      .then(({ body: { items } }) => {
-        this.setState({ items })
-      });
+    this.props.fetchProducts();
   }
 
   render() {
@@ -26,7 +28,7 @@ class Catalog extends Component {
         <h1>Catalog</h1>
         <CartCounter/>
         {
-          this.state.items.map((item) => (
+          this.props.state.catalog.entries.map((item) => (
             <CatalogCard key={`productCard-${item.sys.id}`} product={item}/>
           ))
         }
@@ -35,4 +37,4 @@ class Catalog extends Component {
   }
 }
 
-export default Catalog;
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

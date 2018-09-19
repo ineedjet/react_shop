@@ -3,10 +3,10 @@ import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
 const logger = store => next => action => {
-  console.log('state: -> ', store.getState());
+  console.log('Middleware logger: [store] -> ', store.getState());
   setTimeout(function() {
-    console.log('state 5s: -> ', store.getState());
-  }, 5000);
+    console.log('Middleware logger 2s: [store]-> ', store.getState());
+  }, 2000);
   next(action);
 };
 

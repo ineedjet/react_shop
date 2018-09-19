@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import {routes} from './src/routes/routes'
 import RouteWithSubRoutes from './src/routes/RouteWithSubRoutes';
+import { Provider } from 'react-redux'
 import store from './src/store'
-
-
-
-import {fetchProducts} from './src/actions/catalog'
-store.dispatch(fetchProducts());
 
 
 class App extends Component {
@@ -27,10 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <CartContext.Provider value={{
-        cartList: this.state.cartList,
-        addToCart: this.addToCart
-      }}>
+      <Provider store={store} >
         <Router>
           <Layout>
             <Switch>
@@ -38,7 +30,7 @@ class App extends Component {
             </Switch>
           </Layout>
         </Router>
-      </CartContext.Provider>
+      </Provider>
     )
   }
 }
