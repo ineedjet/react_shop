@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {apiUrl, acessToken, spaces} from '../constants/access';
+import {apiUrl, accessToken, spaces} from '../constants/access';
 import request from "superagent";
 
 class Image extends Component {
@@ -11,7 +11,7 @@ class Image extends Component {
   componentDidMount() {
     request
       .get(`${apiUrl}/spaces/${spaces}/assets/${this.props.image}`)
-      .set('Authorization', `Bearer ${acessToken}`)
+      .set('Authorization', `Bearer ${accessToken}`)
       .then(({body}) => {
         this.setState({ image: body })
       });

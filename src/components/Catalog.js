@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProductCard from './ProductCard';
 import CartCounter from './CartCounter';
-import {apiUrl, acessToken, spaces, environments} from '../constants/access';
+import {apiUrl, accessToken, spaces, environments} from '../constants/access';
 import request from 'superagent';
 
 class Catalog extends Component {
@@ -14,7 +14,7 @@ class Catalog extends Component {
     request
       .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries`)
       .query({ 'content_type': 'product'})
-      .set('Authorization', `Bearer ${acessToken}`)
+      .set('Authorization', `Bearer ${accessToken}`)
       .then(({ body: { items } }) => {
         this.setState({ items })
       });
