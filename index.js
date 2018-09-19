@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-
 import {routes} from './src/routes/routes'
-
 import RouteWithSubRoutes from './src/routes/RouteWithSubRoutes';
+import store from './src/store'
+
+console.log('state: -> ', store.getState());
 
 class App extends Component {
   constructor(props) {

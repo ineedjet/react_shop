@@ -1,7 +1,7 @@
 import catalog from './catalog';
 import cart from './cart';
 
-export {
+export default {
   catalog,
   cart
 }
