@@ -7,7 +7,11 @@ import {routes} from './src/routes/routes'
 import RouteWithSubRoutes from './src/routes/RouteWithSubRoutes';
 import store from './src/store'
 
-console.log('state: -> ', store.getState());
+
+
+import {fetchProducts} from './src/actions/catalog'
+store.dispatch(fetchProducts());
+
 
 class App extends Component {
   constructor(props) {
