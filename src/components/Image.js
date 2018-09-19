@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {acessToken, spaces} from '../constants/access';
+import {apiUrl, acessToken, spaces} from '../constants/access';
 import request from "superagent";
 
 class Image extends Component {
@@ -10,7 +10,7 @@ class Image extends Component {
 
   componentDidMount() {
     request
-      .get(`https://cdn.contentful.com/spaces/${spaces}/assets/${this.props.image}`)
+      .get(`${apiUrl}/spaces/${spaces}/assets/${this.props.image}`)
       .set('Authorization', `Bearer ${acessToken}`)
       .then(({body}) => {
         this.setState({ image: body })

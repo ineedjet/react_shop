@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ProductCard from './ProductCard';
 import CartCounter from './CartCounter';
-import {acessToken, spaces, environments} from '../constants/access';
+import {apiUrl, acessToken, spaces, environments} from '../constants/access';
 import request from 'superagent';
 
 class Catalog extends Component {
@@ -12,7 +12,7 @@ class Catalog extends Component {
 
   componentDidMount() {
     request
-      .get(`https://cdn.contentful.com/spaces/${spaces}/environments/${environments}/entries`)
+      .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries`)
       .query({ 'content_type': 'product'})
       .set('Authorization', `Bearer ${acessToken}`)
       .then(({ body: { items } }) => {

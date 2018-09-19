@@ -2,7 +2,7 @@ import {Component} from "react";
 import React from "react";
 import ProductCard from './ProductCard';
 import CartCounter from './CartCounter';
-import {acessToken, spaces, environments} from '../constants/access';
+import {apiUrl, acessToken, spaces, environments} from '../constants/access';
 import request from "superagent";
 
 class Product extends Component {
@@ -13,7 +13,7 @@ class Product extends Component {
 
   componentDidMount() {
     request
-      .get(`https://cdn.contentful.com/spaces/${spaces}/environments/${environments}/entries/${this.props.id}`)
+      .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries/${this.props.id}`)
       .set('Authorization', `Bearer ${acessToken}`)
       .then(({body}) => {
         this.setState({ product: body })
