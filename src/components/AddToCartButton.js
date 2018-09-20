@@ -3,10 +3,6 @@ import connect from "react-redux/es/connect/connect";
 import {addToCart} from "../actions/cart";
 
 
-const mapStateToProps = (state) => {
-  return {state};
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart(item){
@@ -23,4 +19,4 @@ class AddToCartButton extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddToCartButton);
+export default connect(null, mapDispatchToProps)(AddToCartButton);
