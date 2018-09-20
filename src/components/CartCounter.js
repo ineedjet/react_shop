@@ -9,7 +9,6 @@ const mapStateToProps = (state) => ({
 
 class CartCounter extends Component {
   render() {
-    console.log(this.props);
 
     return (
       <p>
