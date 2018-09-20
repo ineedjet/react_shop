@@ -17,8 +17,6 @@ const mapDispatchToProps = (dispatch) => {
 
 class AddToCartButton extends Component {
   render() {
-    console.log(this.props.product);
-
     return (
       <button onClick={() => this.props.addToCart(this.props.product)}>Добавить в корзину</button>
     )

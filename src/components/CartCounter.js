@@ -9,11 +9,11 @@ const mapStateToProps = (state) => {
 
 class CartCounter extends Component {
   render() {
-    const CartList = this.props.state.cart.entries;
+    const cartList = this.props.state.cart.entries;
 
     return (
       <p>
-        <Link to={cartPath()}>В корзине: {CartList.length}</Link>
+        <Link to={cartPath()}>В корзине: {cartList.length}</Link>
       </p>
     )
   }
