@@ -4,9 +4,9 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/catalog'
 
 
-const mapStateToProps = (state) => {
-  return {state};
-};
+const mapStateToProps = (state) => ({
+   catalog: state.catalog
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -23,7 +23,7 @@ class CatalogContainer extends Component {
 
   render() {
     return (
-      <Catalog products={this.props.state.catalog.entries} />
+      <Catalog products={this.props.catalog.entries} />
     )
   }
 }

@@ -3,17 +3,17 @@ import {cartPath} from "../helpers/routes";
 import Link from "./Link";
 import connect from "react-redux/es/connect/connect";
 
-const mapStateToProps = (state) => {
-  return {state};
-};
+const mapStateToProps = (state) => ({
+  cart: state.cart
+});
 
 class CartCounter extends Component {
   render() {
-    const cartList = this.props.state.cart.entries;
+    console.log(this.props);
 
     return (
       <p>
-        <Link to={cartPath()}>В корзине: {cartList.length}</Link>
+        <Link to={cartPath()}>В корзине: {this.props.cart.entries.length}</Link>
       </p>
     )
   }

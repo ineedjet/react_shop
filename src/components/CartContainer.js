@@ -3,14 +3,14 @@ import Cart from './Cart'
 import {connect} from "react-redux";
 
 
-const mapStateToProps = (state) => {
-  return {state};
-};
+const mapStateToProps = (state) => ({
+  cart: state.cart
+});
 
 class CartContainer extends Component {
   render() {
     return (
-      <Cart cartList = { this.props.state.cart.entries } />
+      <Cart cartList = { this.props.cart.entries } />
     )
   }
 }
