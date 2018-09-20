@@ -1,18 +1,31 @@
 import {Component} from "react";
 import React from "react";
-import {products} from '../constants/Products';
 import ProductCard from './ProductCard';
 import CartCounter from './CartCounter';
+import {apiUrl, accessToken, spaces, environments} from '../constants/access';
+import request from "superagent";
 
 class Product extends Component {
-  render() {
-    const product = products.find( item => item.id === parseInt(this.props.id, 10) );
+  constructor(props) {
+    super(props);
+    this.state = { product: false } ;
+  }
 
+  componentDidMount() {
+    request
+      .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries/${this.props.id}`)
+      .set('Authorization', `Bearer ${accessToken}`)
+      .then(({body}) => {
+        this.setState({ product: body })
+      });
+  }
+
+  render() {
     return (
       <div>
-        <h1>Product { product.id }</h1>
+        <h1>Product { this.state.product && this.state.product.fields.id }</h1>
         <CartCounter/>
-        <ProductCard product={product} />
+        { this.state.product && <ProductCard product={this.state.product} />}
       </div>
     )
   }
