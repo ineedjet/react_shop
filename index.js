@@ -9,17 +9,6 @@ import store from './src/store'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {cartList: []};
-    this.addToCart = this.addToCart.bind(this);
-  }
-
-  addToCart(item) {
-    const newCartList = [...this.state.cartList, item];
-    this.setState({cartList: newCartList})
-  }
-
   render() {
     return (
       <Provider store={store} >
