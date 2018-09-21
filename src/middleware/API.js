@@ -4,6 +4,9 @@ import { stringify } from 'qs'
 export const API_CALL = 'API_CALL';
 
 const APICall = (root, endpoint, method, accessToken, query, payload) => {
+
+  console.log("senging ->", payload);
+
   let r = request[method.toLowerCase()](`${root}${endpoint}`);
   if (query)
     r = r.query(stringify(query));
@@ -27,8 +30,8 @@ export default store => next => action => {
     method,
     accessToken,
     query,
-    types,
-    payload
+    payload,
+    types
   } = action[API_CALL];
 
   const [ requestType, successType, failureType ] = types;
@@ -45,8 +48,8 @@ export default store => next => action => {
     method,
     accessToken,
     query,
-    types,
-    payload
+    payload,
+    types
   );
 
   promise

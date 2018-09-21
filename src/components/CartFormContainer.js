@@ -7,7 +7,7 @@ import { clearCart } from '../actions/cart';
 import CartForm from './CartForm';
 
 const EMAIL_PATTERN = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-const PHONE_PATTERN = /^(\+)?(\d)+[\d-\s]{10,}$/;
+const PHONE_PATTERN = /^(\+)?(\d)+[\d-\s]{6,}$/;
 
 const checkRequired = (values, required) => {
   const errors = {};
@@ -35,6 +35,8 @@ const validate = (values) => {
 };
 
 const submit = (values, dispatch, props) => {
+  console.log("submit ->", values);
+
   const { reset } = props;
   dispatch(submitOrder(values)).then(() => {
     dispatch(clearCart());
