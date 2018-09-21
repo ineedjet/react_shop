@@ -4,7 +4,7 @@ import Link from "./Link";
 import connect from "react-redux/es/connect/connect";
 
 const mapStateToProps = (state) => ({
-  cart: state.cart
+  cartCounter: state.cart.entries.length
 });
 
 class CartCounter extends Component {
@@ -12,7 +12,7 @@ class CartCounter extends Component {
 
     return (
       <p>
-        <Link to={cartPath()}>В корзине: {this.props.cart.entries.length}</Link>
+        <Link to={cartPath()}>В корзине: {this.props.cartCounter}</Link>
       </p>
     )
   }
