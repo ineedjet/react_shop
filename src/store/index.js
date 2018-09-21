@@ -1,12 +1,12 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import reducers from '../reducers';
 import { initCart } from '../actions/cart'
 import { loadState, saveState } from '../helpers/cartPersistence'
+import APImiddleware from '../middleware/API'
 
 const store = createStore(
   combineReducers(reducers),
-  applyMiddleware(thunk)
+  applyMiddleware(APImiddleware)
 );
 
 const initialState = loadState();

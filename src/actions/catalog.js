@@ -1,21 +1,18 @@
-import {apiUrl, accessToken, spaces, environments} from '../constants/access';
-import request from 'superagent';
+import { API_CALL } from '../middleware/API'
+import {accessToken, apiUrl, environments, spaces} from "../constants/access";
 
-export const fetchProductsSuccess = (data) => ({ type: 'FETCH_PRODUCTS_SUCCESS', data });
-export const fetchProductsFailure = () => ({ type: 'FETCH_PRODUCTS_FAILURE' });
-export const fetchProductsRequest = () => ({ type: 'FETCH_PRODUCTS_REQUEST' });
 
-export function fetchProducts(){
-  return function (dispatch) {
-    dispatch(fetchProductsRequest());
-
-    request
-      .get(`${apiUrl}/spaces/${spaces}/environments/${environments}/entries`)
-      .query({ 'content_type': 'product'})
-      .set('Authorization', `Bearer ${accessToken}`)
-      .then(({ body: { items } }) => {
-        dispatch(fetchProductsSuccess(items));
-      });
-
+export const fetchProducts = () => ({
+  [API_CALL]: {
+    root: apiUrl,
+    endpoint: `/spaces/${spaces}/environments/${environments}/entries`,
+    method: 'GET',
+    accessToken: accessToken,
+    query: { 'content_type': 'product' },
+    types: [
+      'FETCH_PRODUCTS_REQUEST',
+      'FETCH_PRODUCTS_SUCCESS',
+      'FETCH_PRODUCTS_FAILURE'
+    ]
   }
-}
+});
