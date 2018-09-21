@@ -12,7 +12,7 @@ class Cart extends Component {
         <p>
           <button onClick={this.props.clearCart}> Очистить </button>
         </p>
-        <CartFormContainer/>
+        <CartFormContainer cartList={ this.props.cartList }/>
       </div>
     )
   }

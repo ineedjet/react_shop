@@ -35,10 +35,10 @@ const validate = (values) => {
 };
 
 const submit = (values, dispatch, props) => {
-  console.log("submit ->", values);
+  console.log("submit ->", props.cartList);
 
   const { reset } = props;
-  dispatch(submitOrder(values)).then(() => {
+  dispatch(submitOrder({values: values, cart: props.cartList})).then(() => {
     dispatch(clearCart());
     reset('order');
   });
