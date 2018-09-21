@@ -2,17 +2,18 @@ import { API_CALL } from '../middleware/API'
 import {accessToken, apiUrl, environments, spaces} from "../constants/access";
 
 
-export const fetchProducts = () => ({
+export const submitOrder = (data) => ({
   [API_CALL]: {
     root: apiUrl,
-    endpoint: `/spaces/${spaces}/environments/${environments}/entries`,
-    method: 'GET',
+    endpoint: `/spaces/${spaces}/environments/${environments}/orders`,
+    method: 'POST',
     accessToken: accessToken,
     query: { 'content_type': 'product' },
+    payload: data,
     types: [
-      'FETCH_PRODUCTS_REQUEST',
-      'FETCH_PRODUCTS_SUCCESS',
-      'FETCH_PRODUCTS_FAILURE'
+      'SUBMIT_ORDER_REQUEST',
+      'SUBMIT_ORDER_SUCCESS',
+      'SUBMIT_ORDER_FAILURE'
     ]
   }
 });
