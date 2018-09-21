@@ -3,7 +3,7 @@ import { stringify } from 'qs'
 
 export const API_CALL = 'API_CALL';
 
-const APICall = (root, endpoint, method, accessToken, query, types, payload) => {
+const APICall = (root, endpoint, method, accessToken, query, payload) => {
   let r = request[method.toLowerCase()](`${root}${endpoint}`);
   if (query)
     r = r.query(stringify(query));
