@@ -31,7 +31,7 @@ export default ({
       name="name"
       type="text"
       component={renderField}
-      label="Your name"
+      label="Ваше имя"
     />
     <Field
       name="email"
@@ -43,20 +43,14 @@ export default ({
       name="phone"
       type="text"
       component={renderField}
-      label="Phone number"
-    />
-    <Field
-      name="address"
-      type="textarea"
-      component={renderField}
-      label="Address"
+      label="Телефон"
     />
     <div>
       <button type="button" disabled={pristine || submitting} onClick={reset}>
-        Reset
+        Сбросить
       </button>
       <button type="submit" disabled={submitting}>
-        Order
+        Заказать
       </button>
     </div>
   </form>
