@@ -5,7 +5,7 @@ import {fetchProducts} from '../actions/catalog'
 
 
 const mapStateToProps = (state) => ({
-   catalog: state.catalog
+   catalog: state.catalog.entries
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -23,7 +23,7 @@ class CatalogContainer extends Component {
 
   render() {
     return (
-      <Catalog products={this.props.catalog.entries} />
+      <Catalog products={this.props.catalog} />
     )
   }
 }
