@@ -7,3 +7,7 @@ export const initCart = (items) => ({
   type: 'INIT_CART',
   items
 });
+
+export const clearCart = () => ({
+  type: 'CLEAR_CART',
+});
