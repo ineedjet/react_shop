@@ -1,4 +1,5 @@
 const path = require('path');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,8 +13,8 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'public/assets'),
     publicPath: '/assets/'
   },
 
@@ -35,5 +36,11 @@ module.exports = {
         loader: 'style-loader, css-loader'
       }
     ]
-  }
+  },
+
+  plugins: [
+    new ManifestPlugin()
+  ]
+
+
 };
