@@ -45,6 +45,12 @@ export default ({
       component={renderField}
       label="Телефон"
     />
+    <Field
+      name="address"
+      type="text"
+      component={renderField}
+      label="Адрес"
+    />
     <div>
       <button type="button" disabled={pristine || submitting} onClick={reset}>
         Сбросить
