@@ -9,6 +9,9 @@ class Cart extends Component {
         <h1>Cart</h1>
         { this.props.cartList.map( (item, index) => (<CartItem key={`itemCard-${index}`} item={item} />) ) }
         <div>В корзине {this.props.cartList.length} товаров</div>
+        <p>
+          <button onClick={this.props.clearCart}> Очистить </button>
+        </p>
         <CartFormContainer/>
       </div>
     )
