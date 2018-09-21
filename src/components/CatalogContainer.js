@@ -11,14 +11,14 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts(){
-      dispatch(fetchProducts())
+      dispatch(fetchProducts());
     }
   }
 };
 
 class CatalogContainer extends Component {
   componentDidMount() {
-    this.props.fetchProducts();
+    this.props.fetchProducts()
   }
 
   render() {
