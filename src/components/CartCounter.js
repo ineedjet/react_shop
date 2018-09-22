@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import CartContext from './CartContext'
 import {cartPath} from "../helpers/routes";
 import Link from "./Link";
+import connect from "react-redux/es/connect/connect";
+
+const mapStateToProps = (state) => ({
+  cartCounter: state.cart.entries.length
+});
 
 class CartCounter extends Component {
   render() {
+
     return (
-      <CartContext.Consumer>
-        {cart => (
-          <p>
-            <Link to={cartPath()}>В корзине: {cart.cartList.length}</Link>
-          </p>
-        )}
-      </CartContext.Consumer>
+      <p>
+        <Link to={cartPath()}>В корзине: {this.props.cartCounter}</Link>
+      </p>
     )
   }
 }
 
-export default CartCounter;
+export default connect(mapStateToProps)(CartCounter);

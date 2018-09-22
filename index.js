@@ -1,31 +1,17 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import CartContext from './src/components/CartContext';
 import Layout from './src/components/Layout';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-
 import {routes} from './src/routes/routes'
-
 import RouteWithSubRoutes from './src/routes/RouteWithSubRoutes';
+import { Provider } from 'react-redux'
+import store from './src/store'
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {cartList: []};
-    this.addToCart = this.addToCart.bind(this);
-  }
-
-  addToCart(item) {
-    const newCartList = [...this.state.cartList, item];
-    this.setState({cartList: newCartList})
-  }
-
   render() {
     return (
-      <CartContext.Provider value={{
-        cartList: this.state.cartList,
-        addToCart: this.addToCart
-      }}>
+      <Provider store={store} >
         <Router>
           <Layout>
             <Switch>
@@ -33,7 +19,7 @@ class App extends Component {
             </Switch>
           </Layout>
         </Router>
-      </CartContext.Provider>
+      </Provider>
     )
   }
 }
